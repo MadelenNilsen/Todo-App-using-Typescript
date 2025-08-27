@@ -25,14 +25,14 @@ const TodoApp = () => { // This is a functional component in React. Everything i
   };
 
   // Remove a todo
-  const removeTodo = (id: string) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id); 
-    setTodos(updatedTodos);
+  const removeTodo = (id: string) => { // id is the unique identifier of the todo we want to remove. When we click Remove on a todo, we pass the id to this function.
+    const updatedTodos = todos.filter((todo) => todo.id !== id); // filter is a JS array method. It creates a new array containing only the items that meet a condition. Here, we keep the id if its NOT equal to the one we want to remove. 
+    setTodos(updatedTodos); // Updates the state of the component with the new array.
   };
 
   // Toggle completion of a todo
   const toggleComplete = (id: string) => {
-    const updatedTodos = todos.map((todo) => {
+    const updatedTodos = todos.map((todo) => { // map creates a new array by transforming each item in the oroginal array
       if (todo.id === id) {
         return { ...todo, completed: !todo.completed }; // flip completed state
       }
